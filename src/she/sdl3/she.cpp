@@ -970,7 +970,7 @@ int main(const int argc, char* argv[]) {
   }
   SDL_SetEventEnabled(SDL_EVENT_FINGER_MOTION, true);
 
-#if defined(__linux__)
+#if defined(__linux__) and !defined(ANDROID)
   const char* driver = SDL_GetCurrentVideoDriver();
   if (driver && SDL_strcmp(driver, "x11") == 0) {
     SDL_SetX11EventHook(she::SDL3EventQueue::X11EventHook, nullptr);
